@@ -22,6 +22,7 @@ public class PlayerAttack : MonoBehaviour
     public bool switchWeapon = false;
     public bool unlockPistol = false;
     public float attackTimer = 0f;
+    public int damagedArea;
 
     void Start()
     {
@@ -78,7 +79,7 @@ public class PlayerAttack : MonoBehaviour
     {
         if (context.started)
         {
-            if(attackTimer >= currentWeaponStats.cooldown && isReloading == false)
+            if (attackTimer >= currentWeaponStats.cooldown && isReloading == false)
             {
                 if (switchWeapon)
                 {
@@ -97,14 +98,27 @@ public class PlayerAttack : MonoBehaviour
     {
         Ray ray = cam.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
-        if(Physics.Raycast(ray, out hit, currentWeaponStats.range))
+        Debug.Log("shoot");
+        if (Physics.Raycast(ray, out hit, currentWeaponStats.range))
         {
-            Debug.Log(hit.collider.tag);
-            if(hit.collider.tag == "Enemy")
+            Debug.Log("shoot");
+            if (hit.collider.tag == "EnemyHead")
             {
-                Debug.Log("Shot enemy");
-                EnemyHealth health = hit.collider.GetComponent<EnemyHealth>();
-                health.TakeDamage(currentWeaponStats.damage);
+                Debug.Log("Shot enemy head");
+                //EnemyHealth health = hit.collider.GetComponent<EnemyHealth>();
+                //health.TakeDamage(currentWeaponStats.damage);
+            }
+            else if (hit.collider.tag == "EnemyBody")
+            {
+                Debug.Log("Shot enemy body");
+                //EnemyHealth health = hit.collider.GetComponent<EnemyHealth>();
+                //health.TakeDamage(currentWeaponStats.damage);
+            }
+            else if (hit.collider.tag == "EnemyLeg/Arm")
+            {
+                Debug.Log("Shot enemy Leg/Arm");
+                //EnemyHealth health = hit.collider.GetComponent<EnemyHealth>();
+                //health.TakeDamage(currentWeaponStats.damage);
             }
         }
         if (switchWeapon)
@@ -150,8 +164,17 @@ public class PlayerAttack : MonoBehaviour
         }   
     }
 
+    public void ReloadGun()
+    {
+        if(currentAmmo<maxAmmo)
+        {
+            StartCoroutine(Reload());
+            return;
+        }
+    }
     IEnumerator Reload()
     {
+        gManager.ammoText.text = "Reloading";
         isReloading = true;
         yield return new WaitForSeconds(reloadTime);
         currentAmmo = maxAmmo;

@@ -63,6 +63,9 @@ public class ZombieFollow : MonoBehaviour
 
     //You can also check if (nav.velocity != Vector3.zero) which will show movement if true.
 
+  
+
+
     // Update is called once per frame
     void Update()
     {

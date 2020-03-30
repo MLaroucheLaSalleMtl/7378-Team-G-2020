@@ -8,6 +8,12 @@ TagManager:
   - Pistol
   - Doll1
   - Doll2
+  - key
+  - blueKey
+  - blueDoor
+  - EnemyHead
+  - EnemyBody
+  - EnemyLeg/Arm
   layers:
   - Default
   - TransparentFX
