@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - panel1
+  - key
+  - greenKey
+  - purpleKey
+  - blueKey
+  - Pistol
+  - blueDoor
+  - redDoor
+  - redKey
+  - purpleDoor
+  - greenDoor
+  - panel2
+  - panel3
+  - Ammo
+  - HealthPack
+  - MetalDoor1
+  - MetalDoor2
+  - MetalDoor3
+  - Doll
+  - Shotgun
+  - Debris
+  - Enemy
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Character Controller
+  - Ragdoll
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
